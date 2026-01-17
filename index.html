@@ -1,9 +1,175 @@
-<html>
-    <head>
-        <title>Hello world!</title>
-    </head>
-    <body>
-        <h1>This is my first statement...</h1>
-        <p>Welcome to CCT</p>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace; /* Monospace for tech feel */
+        }
+
+        body {
+            background-color: #0a0a0a; /* Fallback */
+            overflow: hidden;
+        }
+
+        #mainBg {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Dark Tech Gradient Initial */
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            transition: background 4s ease-in-out; 
+            padding: 20px;
+        }
+
+        .profile-card {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 255, 255, 0.2); /* Neon cyan border */
+            padding: 40px;
+            border-radius: 15px; /* Sharper edges for tech look */
+            text-align: center;
+            color: #00ffcc; /* Cyberpunk Cyan */
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 0 30px rgba(0, 255, 204, 0.15);
+        }
+
+        .profile-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 10%; /* Squircle shape */
+            border: 2px solid #00ffcc;
+            margin-bottom: 20px;
+            filter: grayscale(100%) contrast(120%);
+            transition: 0.5s;
+        }
+
+        .profile-img:hover {
+            filter: grayscale(0%) contrast(100%);
+            box-shadow: 0 0 20px #00ffcc;
+        }
+
+        h1 { 
+            font-size: 1.8rem; 
+            margin-bottom: 5px; 
+            text-transform: uppercase; 
+            letter-spacing: 3px;
+        }
+
+        .glitch-text {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            color: #00ffcc;
+            background: rgba(0, 255, 204, 0.05);
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(0, 255, 204, 0.2);
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: #00ffcc;
+            color: #000;
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
+            transform: translateX(5px);
+        }
+
+        /* Tech Detail */
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 10;
+            background: linear-gradient(0deg, rgba(0, 255, 204, 0.05) 0%, rgba(255, 255, 255, 0) 10%);
+            position: absolute;
+            bottom: 100%;
+            animation: scan 4s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { bottom: 100%; }
+            100% { bottom: -100px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="mainBg">
+        <div class="scanline"></div>
+        
+        <div class="profile-card">
+            <img src="https://i.postimg.cc/nVGbk5mC/IMG-20250623-180234.jpg" alt="Root User" class="profile-img">
+            
+            <h1>ADMIN_USER</h1>
+            <span class="glitch-text">> System Architect / Developer</span>
+
+            <div class="links-container">
+                <a href="#" class="social-link">
+                    <span><i class="fab fa-facebook-square"></i> FACEBOOK</span>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <span><i class="fab fa-instagram"></i> INSTAGRAM</span>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <span><i class="fab fa-github"></i> GITHUB_REPO</span>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tech-focused Dark Gradients
+        const techThemes = [
+            ['#000000', '#0f0c29'], // Pure Black to Deep Navy
+            ['#000000', '#200122'], // Black to Dark Blood Red
+            ['#000428', '#004e92'], // Deep Space Blue
+            ['#0f2027', '#203a43'], // Dark Slate / Charcoal
+            ['#141e30', '#243b55'], // Midnight Steel
+            ['#000000', '#1a1a1a']  // Total Stealth
+        ];
+
+        let currentIndex = 0;
+        const bgElement = document.getElementById('mainBg');
+
+        function autoChangeColor() {
+            currentIndex = (currentIndex + 1) % techThemes.length;
+            const nextTheme = techThemes[currentIndex];
+            
+            // Apply the dark gradient
+            bgElement.style.background = `linear-gradient(135deg, ${nextTheme[0]}, ${nextTheme[1]})`;
+        }
+
+        // Auto-rotate every 5 seconds
+        setInterval(autoChangeColor, 5000);
+    </script>
+
+</body>
 </html>
