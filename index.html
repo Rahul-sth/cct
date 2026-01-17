@@ -3,19 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me </title>
+    <title>Rahul Shrestha | Developer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        :root {
+            --neon-cyan: #00ffcc;
+            --glass-bg: rgba(5, 5, 5, 0.8);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Courier New', Courier, monospace; /* Monospace for tech feel */
+            font-family: 'Inter', sans-serif;
         }
 
         body {
-            background-color: #0a0a0a; /* Fallback */
+            background-color: #000;
             overflow: hidden;
+            height: 100vh;
         }
 
         #mainBg {
@@ -24,53 +30,65 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            /* Dark Tech Gradient Initial */
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            background: linear-gradient(135deg, #000000, #0a0a2e);
             transition: background 4s ease-in-out; 
-            padding: 20px;
+            position: relative;
         }
 
+        /* Glassmorphic Profile Card */
         .profile-card {
-            background: rgba(0, 0, 0, 0.7);
+            position: relative;
+            z-index: 10;
+            background: var(--glass-bg);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 255, 255, 0.2); /* Neon cyan border */
-            padding: 40px;
-            border-radius: 15px; /* Sharper edges for tech look */
+            border: 1px solid rgba(0, 255, 204, 0.3);
+            padding: 50px 40px;
+            border-radius: 20px;
             text-align: center;
-            color: #00ffcc; /* Cyberpunk Cyan */
-            max-width: 400px;
-            width: 100%;
-            box-shadow: 0 0 30px rgba(0, 255, 204, 0.15);
+            max-width: 420px;
+            width: 90%;
+            box-shadow: 0 0 50px rgba(0, 255, 204, 0.1);
         }
 
         .profile-img {
-            width: 110px;
-            height: 110px;
-            border-radius: 10%; /* Squircle shape */
-            border: 2px solid #00ffcc;
-            margin-bottom: 20px;
-            filter: grayscale(100%) contrast(120%);
-            transition: 0.5s;
+            width: 170px;
+            height: 170px;
+            border-radius: 15%;
+            border: 2px solid var(--neon-cyan);
+            margin-bottom: 25px;
+            object-fit: cover;
+            box-shadow: 0 0 25px rgba(0, 255, 204, 0.3);
         }
 
-        .profile-img:hover {
-            filter: grayscale(0%) contrast(100%);
-            box-shadow: 0 0 20px #00ffcc;
+        h1 {
+            font-family: 'Courier New', monospace;
+            font-size: 2rem;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
         }
 
-        h1 { 
-            font-size: 1.8rem; 
-            margin-bottom: 5px; 
-            text-transform: uppercase; 
-            letter-spacing: 3px;
-        }
-
-        .glitch-text {
-            color: #888;
-            font-size: 0.9rem;
+        /* Typewriter text style */
+        .typing-container {
+            font-family: 'Courier New', monospace;
+            color: var(--neon-cyan);
+            font-size: 0.95rem;
+            min-height: 20px;
             margin-bottom: 30px;
-            display: block;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            background-color: var(--neon-cyan);
+            margin-left: 5px;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
 
         .links-container {
@@ -82,94 +100,97 @@
         .social-link {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
+            gap: 12px;
             text-decoration: none;
-            color: #00ffcc;
-            background: rgba(0, 255, 204, 0.05);
-            padding: 12px 20px;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(0, 255, 204, 0.2);
-            transition: all 0.3s;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 500;
+            border: 1px solid rgba(0, 255, 204, 0.1);
+            transition: 0.3s ease;
         }
 
         .social-link:hover {
-            background: #00ffcc;
+            background: var(--neon-cyan);
             color: #000;
-            box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
-            transform: translateX(5px);
-        }
-
-        /* Tech Detail */
-        .scanline {
-            width: 100%;
-            height: 100px;
-            z-index: 10;
-            background: linear-gradient(0deg, rgba(0, 255, 204, 0.05) 0%, rgba(255, 255, 255, 0) 10%);
-            position: absolute;
-            bottom: 100%;
-            animation: scan 4s linear infinite;
-        }
-
-        @keyframes scan {
-            0% { bottom: 100%; }
-            100% { bottom: -100px; }
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
+            transform: translateY(-2px);
         }
     </style>
 </head>
 <body>
 
     <div id="mainBg">
-        <div class="scanline"></div>
-        
         <div class="profile-card">
-            <img src="https://i.postimg.cc/nVGbk5mC/IMG-20250623-180234.jpg" alt="Root User" class="profile-img">
+            <img src="https://i.postimg.cc/nVGbk5mC/IMG-20250623-180234.jpg" class="profile-img">
             
-            <h1>ADMIN_USER</h1>
-            <span class="glitch-text">> System Architect / Developer</span>
+            <h1>Rahul Shrestha</h1>
+            
+            <div class="typing-container">
+                <span id="typewriter"></span><span class="cursor">|</span>
+            </div>
 
             <div class="links-container">
-                <a href="#" class="social-link">
-                    <span><i class="fab fa-facebook-square"></i> FACEBOOK</span>
-                    <i class="fas fa-chevron-right"></i>
-                </a>
-                <a href="#" class="social-link">
-                    <span><i class="fab fa-instagram"></i> INSTAGRAM</span>
-                    <i class="fas fa-chevron-right"></i>
-                </a>
-                <a href="#" class="social-link">
-                    <span><i class="fab fa-github"></i> GITHUB_REPO</span>
-                    <i class="fas fa-chevron-right"></i>
-                </a>
+                <a href="https://www.facebook.com/regan.shrestha.225" class="social-link"><i class="fab fa-facebook-f"></i> FACEBOOK</a>
+                <a href="https://www.instagram.com/mr_stha_0001/" class="social-link"><i class="fab fa-instagram"></i> INSTAGRAM</a>
+                <a href="https://github.com/Rahul-sth" class="social-link"><i class="fab fa-github"></i> GITHUB</a>
             </div>
         </div>
     </div>
 
     <script>
-        // Tech-focused Dark Gradients
+        // Automatic Background Colors
         const techThemes = [
-            ['#000000', '#0f0c29'], // Pure Black to Deep Navy
-            ['#000000', '#200122'], // Black to Dark Blood Red
-            ['#000428', '#004e92'], // Deep Space Blue
-            ['#0f2027', '#203a43'], // Dark Slate / Charcoal
-            ['#141e30', '#243b55'], // Midnight Steel
-            ['#000000', '#1a1a1a']  // Total Stealth
+            ['#000000', '#0f0c29'], 
+            ['#050005', '#200122'], 
+            ['#000428', '#002a4d'], 
+            ['#080e10', '#1a2a2f']
         ];
+        let themeIdx = 0;
+        setInterval(() => {
+            themeIdx = (themeIdx + 1) % techThemes.length;
+            document.getElementById('mainBg').style.background = `linear-gradient(135deg, ${techThemes[themeIdx][0]}, ${techThemes[themeIdx][1]})`;
+        }, 5000);
 
-        let currentIndex = 0;
-        const bgElement = document.getElementById('mainBg');
+        // Typewriter Effect
+        const textElement = document.getElementById('typewriter');
+        const phrases = [
+            "Passionate Programmer",
+            "Solving complex problems...",
+            "Building the future with code.",
+            "Always learning, always coding."
+        ];
+        let phraseIdx = 0;
+        let charIdx = 0;
+        let isDeleting = false;
 
-        function autoChangeColor() {
-            currentIndex = (currentIndex + 1) % techThemes.length;
-            const nextTheme = techThemes[currentIndex];
-            
-            // Apply the dark gradient
-            bgElement.style.background = `linear-gradient(135deg, ${nextTheme[0]}, ${nextTheme[1]})`;
+        function type() {
+            const currentPhrase = phrases[phraseIdx];
+            if (isDeleting) {
+                textElement.textContent = currentPhrase.substring(0, charIdx - 1);
+                charIdx--;
+            } else {
+                textElement.textContent = currentPhrase.substring(0, charIdx + 1);
+                charIdx++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIdx === currentPhrase.length) {
+                isDeleting = true;
+                typeSpeed = 2000; // Wait at end
+            } else if (isDeleting && charIdx === 0) {
+                isDeleting = false;
+                phraseIdx = (phraseIdx + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
         }
 
-        // Auto-rotate every 5 seconds
-        setInterval(autoChangeColor, 5000);
+        document.addEventListener('DOMContentLoaded', type);
     </script>
-
 </body>
 </html>
